@@ -99,7 +99,14 @@ namespace YoInstaller
 
 
                 for (var i = 0; i < arrPathList.Count; i++) {
-                    arrPathList[i] = arrPathList[i].Replace(@"\\", @"\");
+                    if (arrPathList[i].Length == 0)
+                    {
+                        arrPathList.Remove(arrPathList[i]);
+                    }
+                    else
+                    {
+                        arrPathList[i] = arrPathList[i].Replace(@"\\", @"\");
+                    }
                 }
 
                 arrPathList= arrPathList.Distinct().ToList();
