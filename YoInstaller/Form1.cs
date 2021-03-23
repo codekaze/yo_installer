@@ -97,6 +97,13 @@ namespace YoInstaller
                     arrPathList.Add(newPath);
                 }
 
+
+                for (var i = 0; i < arrPathList.Count; i++) {
+                    arrPathList[i] = arrPathList[i].Replace(@"\\", @"\");
+                }
+
+                arrPathList= arrPathList.Distinct().ToList();
+
                 var newValue = String.Join(";", arrPathList);
                 Environment.SetEnvironmentVariable("PATH", newValue, scope);
 
